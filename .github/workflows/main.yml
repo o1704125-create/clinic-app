@@ -18,7 +18,7 @@ jobs:
             git \
             zip \
             unzip \
-            openjdk-17-jdk \
+            openjdk-11-jdk \
             python3-pip \
             autoconf \
             libtool \
@@ -37,7 +37,7 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer android debug
+          yes | buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
