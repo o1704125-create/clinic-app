@@ -1,0 +1,16 @@
+workflows: android-workflow: name: Clinic Manager Android instance_type: linux_x2 max_build_duration: 60
+environment:
+  python: 3.11
+
+scripts:
+  - name: Install dependencies
+    script: |
+      python3 -m pip install --upgrade pip
+      pip install buildozer cython==0.29.36
+
+  - name: Build APK
+    script: |
+      yes | buildozer android debug
+
+artifacts:
+  - bin/*.apk
